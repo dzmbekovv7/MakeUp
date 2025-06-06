@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import ContactForm from "../components/ContactForm";
 import { Mail, Phone, MapPin } from "lucide-react";
-
+import { Link } from "react-router-dom";
 const Contact = () => {
   return (
     <div className="bg-gradient-to-br bg-gradient-to-r from-black via-gray-900 to-black min-h-screen text-white px-6 py-20 font-sans">
@@ -109,6 +109,7 @@ const Contact = () => {
         text: "Eco-friendly products crafted to nourish your skin and the planet.",
       },
     ].map((item, i) => (
+      <Link to="/articles">
       <motion.div
         key={i}
         className="bg-white/10 border border-white/20 rounded-3xl overflow-hidden shadow-2xl backdrop-blur-md hover:scale-105 hover:shadow-pink-500/40 transition-all duration-500"
@@ -122,6 +123,7 @@ const Contact = () => {
           <p className="text-gray-300">{item.text}</p>
         </div>
       </motion.div>
+      </Link>
     ))}
   </div>
 </section>

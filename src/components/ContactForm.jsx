@@ -22,23 +22,26 @@ const ContactForm = () => {
 
   return (
     <>
-   <motion.form
-  onSubmit={handleSubmit}
-  className="w-full max-w-xl mx-auto px-4 sm:px-6 py-6 sm:py-8 
-             rounded-xl sm:rounded-2xl shadow-xl bg-white/10 
-             backdrop-blur-md border border-white/20 space-y-5 sm:space-y-6"
-  initial={{ opacity: 0, y: 30 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.7 }}
->
-
-<h2 className="text-xl sm:text-2xl font-semibold text-white text-center mb-4">
-  Contact Us
-</h2>
+      <motion.form
+        onSubmit={handleSubmit}
+        className={`
+          w-full max-w-xl mx-auto px-4 py-6 rounded-xl shadow-xl
+          border border-gray-300 bg-white text-black space-y-5
+          sm:px-6 sm:py-8 sm:rounded-2xl sm:bg-white/10 sm:border-white/20 sm:text-white
+          sm:space-y-6
+          backdrop-blur-md
+        `}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+      >
+        <h2 className="text-xl sm:text-2xl font-semibold text-center mb-4">
+          Contact Us
+        </h2>
 
         {/* Name */}
         <div>
-          <label htmlFor="name" className="block text-white mb-2 text-sm">
+          <label htmlFor="name" className="block mb-2 text-sm">
             Name
           </label>
           <input
@@ -49,14 +52,18 @@ const ContactForm = () => {
             value={formData.name}
             onChange={handleChange}
             placeholder="John Doe"
-            className="w-full px-4 py-3 rounded-lg bg-white/20 text-white placeholder-white/70
-                       border border-white/30 focus:outline-none focus:ring-2 focus:ring-white/50"
+            className={`
+              w-full px-4 py-3 rounded-lg border border-gray-300
+              bg-white text-black placeholder-gray-500
+              focus:outline-none focus:ring-2 focus:ring-blue-400
+              sm:bg-white/20 sm:text-white sm:placeholder-white/70 sm:border-white/30 sm:focus:ring-white/50
+            `}
           />
         </div>
 
         {/* Email */}
         <div>
-          <label htmlFor="email" className="block text-white mb-2 text-sm">
+          <label htmlFor="email" className="block mb-2 text-sm">
             Email
           </label>
           <input
@@ -67,14 +74,18 @@ const ContactForm = () => {
             value={formData.email}
             onChange={handleChange}
             placeholder="you@example.com"
-            className="w-full px-4 py-3 rounded-lg bg-white/20 text-white placeholder-white/70
-                       border border-white/30 focus:outline-none focus:ring-2 focus:ring-white/50"
+            className={`
+              w-full px-4 py-3 rounded-lg border border-gray-300
+              bg-white text-black placeholder-gray-500
+              focus:outline-none focus:ring-2 focus:ring-blue-400
+              sm:bg-white/20 sm:text-white sm:placeholder-white/70 sm:border-white/30 sm:focus:ring-white/50
+            `}
           />
         </div>
 
         {/* Message */}
         <div>
-          <label htmlFor="message" className="block text-white mb-2 text-sm">
+          <label htmlFor="message" className="block mb-2 text-sm">
             Message
           </label>
           <textarea
@@ -85,8 +96,12 @@ const ContactForm = () => {
             value={formData.message}
             onChange={handleChange}
             placeholder="Write your message here..."
-            className="w-full px-4 py-3 rounded-lg bg-white/20 text-white placeholder-white/70
-                       border border-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 resize-none"
+            className={`
+              w-full px-4 py-3 rounded-lg border border-gray-300 resize-none
+              bg-white text-black placeholder-gray-500
+              focus:outline-none focus:ring-2 focus:ring-blue-400
+              sm:bg-white/20 sm:text-white sm:placeholder-white/70 sm:border-white/30 sm:focus:ring-white/50
+            `}
           />
         </div>
 
@@ -95,8 +110,11 @@ const ContactForm = () => {
           type="submit"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="w-full py-3 bg-white text-black font-semibold rounded-lg 
-                     transition duration-300 hover:bg-gray-200"
+          className={`
+            w-full py-3 bg-black text-white font-semibold rounded-lg
+            transition duration-300 hover:bg-gray-800
+            sm:bg-white sm:text-black sm:hover:bg-gray-200
+          `}
         >
           Send Message
         </motion.button>
