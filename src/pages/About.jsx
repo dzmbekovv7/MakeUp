@@ -58,33 +58,39 @@ const sections = [
     icon: Heart,
   },
 ];
-
 const team = [
   {
-    name: "Alice Johnson",
-    role: "CEO & Founder",
-    photo: "https://randomuser.me/api/portraits/women/65.jpg",
-    bio: "Visionary leader with over 10 years in beauty and management.",
+    name: "Emily Rivers",
+    role: "Fashion Model",
+    photo: "https://randomuser.me/api/portraits/women/48.jpg",
+    bio: "Experienced runway and commercial model with a passion for style.",
   },
   {
-    name: "Brian Lee",
-    role: "Lead Makeup Artist",
-    photo: "https://randomuser.me/api/portraits/men/43.jpg",
-    bio: "Master of color theory and creative transformation.",
+    name: "Liam Cooper",
+    role: "Makeup Specialist",
+    photo: "https://randomuser.me/api/portraits/men/24.jpg",
+    bio: "Creates flawless looks for stage, screen, and photography.",
   },
   {
-    name: "Catherine Smith",
-    role: "Photo & Model Director",
-    photo: "https://randomuser.me/api/portraits/women/52.jpg",
-    bio: "Crafts perfect frames and guides our models to shine.",
+    name: "Sophia Turner",
+    role: "Acting Coach",
+    photo: "https://randomuser.me/api/portraits/women/29.jpg",
+    bio: "Helps talents unlock emotional expression and camera confidence.",
   },
   {
-    name: "David Miller",
-    role: "Beauty Consultant",
-    photo: "https://randomuser.me/api/portraits/men/36.jpg",
-    bio: "Expert in skin, tools, and client satisfaction.",
+    name: "Noah Bennett",
+    role: "Model Scout",
+    photo: "https://randomuser.me/api/portraits/men/57.jpg",
+    bio: "Discovers fresh faces and prepares them for the fashion industry.",
+  },
+  {
+    name: "Isabella Moore",
+    role: "Creative Director",
+    photo: "https://randomuser.me/api/portraits/women/61.jpg",
+    bio: "Shapes the visual language and artistic vision of our campaigns.",
   },
 ];
+
 const icons = [Sparkles, Stars, Feather, Brush];
 
 const AboutPage = () => {

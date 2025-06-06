@@ -122,9 +122,7 @@ const DogsTrainingPage = () => {
                 <p className="text-xs text-gray-400">⏱ {article.reading_time} min</p>
               </div>
             </div>
-            <button className="bg-[#f2a365] text-white px-5 py-2 rounded-lg font-semibold hover:bg-[#d1863f] transition">
-              Read
-            </button>
+      
           </div>
         </div>
       </Link>
