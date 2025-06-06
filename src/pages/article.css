@@ -1,0 +1,9 @@
+.custom-link {
+    color: blue;
+    text-decoration: underline;
+    /* любые другие стили */
+  }
+  .custom-link:hover {
+    color: darkblue;
+  }
+  

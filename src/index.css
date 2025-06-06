@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: white;
+
+  /* Точки */
+  background-image:
+    radial-gradient(rgba(0, 0, 0, 0.05) 1.5px, transparent 1.5px),
+    radial-gradient(rgba(0, 0, 0, 0.05) 1.5px, transparent 1.5px);
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
+
+  /* Без прокрутки */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.neon-text {
+  text-shadow:
+    0 0 5px #ff69b4,
+    0 0 10px #ff69b4,
+    0 0 20px #ff69b4,
+    0 0 40px #ff1493;
+}
