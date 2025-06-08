@@ -11,19 +11,25 @@ const DogsTrainingPage = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [filter, setFilter] = useState('newest')
 
-  useEffect(() => {
-    const fetchArticles = async () => {
-      const { data, error } = await supabase
-        .from('dogstraining_articles')
-        .select('*')
-        .order('published_date', { ascending: false })
+useEffect(() => {
+  const fetchArticles = async () => {
+    const { data, error } = await supabase
+      .from('makeup_articles')
+      .select('*')
+      .order('published_date', { ascending: false });
 
-      if (error) setError(error.message)
-      else setArticles(data)
-      setLoading(false)
+    if (error) setError(error.message);
+    else {
+      console.log("Fetched types:", data.map(article => article.type)); // 👈 This shows all `type` values
+      setArticles(data);
     }
-    fetchArticles()
-  }, [])
+
+    setLoading(false);
+  };
+
+  fetchArticles();
+}, []);
+
 
   const handleShowMore = () => setVisibleCount(prev => prev + 9)
 

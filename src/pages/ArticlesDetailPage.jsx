@@ -22,7 +22,7 @@ const AshleyArticleDetailPage = () => {
 
   useEffect(() => {
     const fetchArticle = async () => {
-      const { data, error } = await supabase.from('dogstraining_articles').select('*');
+      const { data, error } = await supabase.from('makeup_articles').select('*');
 
       if (!error && data) {
         const found = data.find((a) => slugify(a.title) === slug);
@@ -86,10 +86,10 @@ const AshleyArticleDetailPage = () => {
   };
 
   const keywords = [
-    'Special training',
-    'Basic training',
-    'Behavioral correction',
-    'Training by age and breed',
+    'Skin Disorders',
+    'Makeup Tips',
+    'Beauty Lifestyle',
+    'Mens Grooming',
   ];
 
   if (loading) return <Loading />;
