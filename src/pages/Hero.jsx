@@ -126,7 +126,7 @@ const Hero = () => {
   useEffect(() => {
     async function fetchArticles() {
       const { data } = await supabase
-        .from("dogstraining_articles")
+        .from("makeup_articles")
         .select("*")
         .order("published_date", { ascending: false })
         .limit(6);

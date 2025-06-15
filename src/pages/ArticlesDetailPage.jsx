@@ -103,26 +103,41 @@ const AshleyArticleDetailPage = () => {
     return html.replace(/<a /g, '<a class="custom-link" ');
   }
 
-  const customMarkdown = (content) => {
-    if (!content) return '';
+const customMarkdown = (content) => {
+  if (!content) return "";
 
-    let html = content
-      .replace(/^# (.*$)/gm, '<h1>$1</h1>')
-      .replace(/^## (.*$)/gm, '<h2>$1</h2>')
-      .replace(/^### (.*$)/gm, '<h3>$1</h3>')
-      .replace(/\*\*(.*?)\*\*/g, '<strong style="font-size: 30px; font-weight: 700;">$1</strong>')
-      .replace(/\*(.*?)\*/g, '<em>$1</em>')
-      .replace(
-        /\[(.*?)\]\((.*?)\)/g,
-        `<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>`
-      )
-      .replace(/<img>(.*?)<\/img>/g, '<img src="$1" style="width: 70%; height: 100%" loading="lazy" class="article-image-content" />')
-      .split('\n')
-      .map((line) => (line.trim() === '' ? '<br/>' : `<p>${line}</p>`))
-      .join('');
+  let html = content
+    .replace(/^# (.*)$/gm, "<h1>$1</h1>")
+    .replace(/^## (.*)$/gm, "<h2>$1</h2>")
+    .replace(/^### (.*)$/gm, "<h3>$1</h3>")
+    .replace(/\*\*(.*?)\*\*/g, '<strong style="font-size: 30px; font-weight: 700;">$1</strong>')
+    .replace(/\*(.*?)\*/g, "<em>$1</em>")
+    .replace(/\[(.*?)\]\((.*?)\)/g, `<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>`);
 
-    return addClassToLinks(html);
-  };
+  const lines = html.split("\n").map(line => {
+    const trimmed = line.trim();
+
+    if (
+      /^https?:\/\/.*\.(jpg|jpeg|png|webp|gif|bmp)$/i.test(trimmed) ||
+      /^https?:\/\/images\.unsplash\.com\/.+/.test(trimmed)
+    ) {
+      return `<img src="${trimmed}" alt="image" style="width: 100%; margin: 1rem 0; border-radius: 12px;" loading="lazy" />`;
+    }
+
+    if (trimmed === "") return "<br/>";
+
+    if (/^<.*>.*<\/.*>$/.test(trimmed)) {
+      return trimmed;
+    }
+
+    return `<p>${trimmed}</p>`;
+  });
+
+  return lines.join("");
+};
+
+
+console.log(article.content)
 
   return (
 <div className="min-h-screen bg-gradient-to-r from-gray-950 via-black to-gray-900 text-gray-100 px-4 py-10">
@@ -148,13 +163,11 @@ const AshleyArticleDetailPage = () => {
         </div>
       </div>
   
-      {/* Статья как колонки */}
-      <article className="columns-1 md:columns-2 gap-8 space-y-4 text-gray-300 leading-relaxed text-lg">
-        <div
-          dangerouslySetInnerHTML={{ __html: customMarkdown(article.content) }}
-        />
-      </article>
-  
+    <article
+      className="columns-1 md:columns-2 gap-8 space-y-4 text-gray-300 leading-relaxed text-lg"
+      dangerouslySetInnerHTML={{ __html: customMarkdown(article.content) }}
+    />
+
       {/* Карусель навигации */}
       <div className="flex justify-between items-center mt-12 text-purple-300">
         {prevArticle ? (
